@@ -14,6 +14,7 @@ export default {
   				'sans-serif'
   			],
   			display: [
+          'Playfair Display',
   				'Cal Sans',
   				'Inter',
   				'system-ui',
@@ -91,6 +92,12 @@ export default {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
+        neon: {
+          primary: '#4C1D95', // Deep Violet
+          cyan: '#06B6D4',
+          pink: '#F472B6',
+          emerald: '#10B981',
+        },
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			muted: {
