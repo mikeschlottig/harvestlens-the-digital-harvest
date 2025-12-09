@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { motion } from 'framer-motion';
+import { motion, easeOut } from 'framer-motion';
 import { ArrowRight, Bot, BrainCircuit, CheckCircle, Compass, Cpu, ExternalLink, Layers, Search } from 'lucide-react';
 import { Toaster } from '@/components/ui/sonner';
 import { ThemeToggle } from '@/components/ThemeToggle';
@@ -19,7 +19,7 @@ const useInfographicData = () => {
 // --- Animation Variants ---
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: easeOut } },
 };
 const MotionSection = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => (
   <motion.section
@@ -107,15 +107,18 @@ export function HomePage() {
             <div className="bg-slate-800 p-8 rounded-xl shadow-2xl text-white overflow-x-auto">
               <h3 className="text-center text-neon-cyan font-bold mb-8 tracking-widest">E2E WORKFLOW: INTELLIGENT MARKET MONITORING</h3>
               <div className="flex flex-col md:flex-row justify-between items-center min-w-[700px] text-center gap-4">
-                {['Target Discovery', 'Headless Render', 'LLM Extraction', 'Action Trigger'].map((step, i, arr) => (
-                  <>
+                {['Target Discovery', 'Headless Render', 'LLM Extraction', 'Action Trigger'].flatMap((step, i, arr) => {
+                  const elements = [
                     <div key={step} className="flex flex-col items-center w-40">
                       <div className="bg-slate-700 p-4 rounded-lg shadow-lg font-bold w-full">{step}</div>
                       <div className="text-xs text-slate-400 mt-2">{['Seed URLs', 'Bypass Anti-Bot', 'HTML to JSON', 'Price Update'][i]}</div>
                     </div>
-                    {i < arr.length - 1 && <ArrowRight className="text-slate-500 my-4 md:my-0" />}
-                  </>
-                ))}
+                  ];
+                  if (i < arr.length - 1) {
+                    elements.push(<ArrowRight key={`arrow-${i}`} className="text-slate-500 my-4 md:my-0" />);
+                  }
+                  return elements;
+                })}
               </div>
             </div>
             <Card className="shadow-soft">
