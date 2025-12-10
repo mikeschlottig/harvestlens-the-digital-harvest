@@ -1,6 +1,6 @@
 # HarvestLens — The Digital Harvest
 
-[cloudflarebutton]
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/mikeschlottig/harvestlens-the-digital-harvest)
 
 HarvestLens is a production-ready, visually stunning React frontend application served via a Cloudflare Workers backend using Hono. It transforms a single-file infographic into an interactive web report on the state of open-source web crawlers. The app features a single responsive page with a hero section, detailed landscape analysis, business workflows, top 10 rankings with cards and charts, an extended list (ranks 11-50), and under-the-radar hidden gems. Data is fetched from lightweight REST endpoints and visualized using interactive charts, tables, and cards for an engaging user experience.
 
@@ -154,7 +154,7 @@ Deploy to Cloudflare Workers for global edge performance. The app bundles fronte
    - Custom domain: Update `wrangler.jsonc` with `route` under `assets`.
 
 3. **One-Click Deploy**:
-   [cloudflarebutton]
+   [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/mikeschlottig/harvestlens-the-digital-harvest)
 
 4. **Post-Deployment**:
    - API endpoints are available at `/api/infographic/*`.
